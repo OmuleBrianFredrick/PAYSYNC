@@ -25,8 +25,8 @@ Authority: PaySync SDLC Document plus approved amendments recorded here
 
 | Stage | Name | Current status |
 |---:|---|---|
-| 0 | Governance and project baseline | BLOCKED — GITHUB ACTIONS ACCOUNT LOCK |
-| 1 | Supabase PostgreSQL migration | NOT STARTED |
+| 0 | Governance and project baseline | COMPLETE |
+| 1 | Supabase PostgreSQL migration | IN PROGRESS |
 | 2 | Authentication, roles and tenant isolation | NOT STARTED |
 | 3 | Complete ingestion pipeline | NOT STARTED |
 | 4 | Real name-verification integration | NOT STARTED |
@@ -113,7 +113,8 @@ After Stage 12: analytics, accounting exports, Expo/React Native mobile app, pus
 | Date | Amendment | Status |
 |---|---|---|
 | 1 September 2026 | Adopted the 13-stage execution blueprint, Supabase PostgreSQL/Auth architecture, Cloudflare-compatible deployment, strengthened account approval, RLS, idempotency, maker-checker controls, monitoring, and controlled-pilot gates. | APPROVED |
+| 1 September 2026 | Amendment 002: development continues under equivalent local quality gates while GitHub Actions is account-locked; only verified working revisions are pushed, and hosted CI is required at Stage 10. | APPROVED |
 
 ## Current Handoff
 
-Stage 0 source and governance baseline were pushed to `https://github.com/OmuleBrianFredrick/PAYSYNC` at commit `40313ac`. Local clean-install verification, lint, production build, automated tests, production dependency audit, and secret checks pass. GitHub refused to start the configured CI jobs and reported: `The job was not started because your account is locked due to a billing issue.` Stage 0 remains blocked until GitHub Actions can run and the remote checks pass.
+Stage 0 is complete. Its source and governance baseline are stored at `https://github.com/OmuleBrianFredrick/PAYSYNC`; local clean-install verification, lint, production build, automated tests, production dependency audit, and secret checks passed. Under Amendment 002, the GitHub Actions account lock is deferred and does not block development. Stage 1 is in progress: replace the transitional D1/SQLite data layer with migration-managed Supabase PostgreSQL and prove its integration and concurrency behavior.
