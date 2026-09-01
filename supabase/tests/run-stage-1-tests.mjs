@@ -122,8 +122,8 @@ async function verifyPostgrestIntegration() {
 }
 
 try {
-  const existing = docker(["ps", "-a", "--filter", `name=^/${containerName}$`, "--format", "{{.Names}}"]); 
-  if (existing.trim()) docker(["stop", containerName]);
+  const existing = docker(["ps", "-a", "--filter", `name=^/${containerName}$`, "--format", "{{.Names}}"]).trim();
+  if (existing) docker(["stop", containerName]);
 
   docker(["run", "--rm", "-d", "--name", containerName, "-e", "POSTGRES_HOST_AUTH_METHOD=trust", "-p", "127.0.0.1:55432:5432", image]);
 
