@@ -1,0 +1,25 @@
+name: Stage task
+description: Track a deliverable from the operational blueprint.
+title: "[Stage N]: "
+labels: [stage-task]
+body:
+  - type: input
+    id: stage
+    attributes:
+      label: Stage number and name
+    validations:
+      required: true
+  - type: textarea
+    id: deliverable
+    attributes:
+      label: Deliverable
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance evidence
+      description: State the exact test, artifact, or observed outcome that proves completion.
+    validations:
+      required: true
+

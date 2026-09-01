@@ -1,0 +1,33 @@
+name: Bug report
+description: Report a reproducible PaySync defect. Do not include secrets or real recipient data.
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: Do not report security vulnerabilities publicly. Follow SECURITY.md.
+  - type: input
+    id: stage
+    attributes:
+      label: Operational blueprint stage
+    validations:
+      required: true
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Observed behavior
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Safe reproduction steps
+    validations:
+      required: true
+

@@ -1,0 +1,41 @@
+# Dependencies and builds
+node_modules/
+web/node_modules/
+web/dist/
+web/.next/
+web/.vinext/
+web/out/
+web/.wrangler/
+web/coverage/
+
+# Local environments and secrets
+.env
+.env.*
+!.env.example
+!web/.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Local databases and runtime state
+*.sqlite
+*.sqlite3
+*.db
+*.db-shm
+*.db-wal
+.codex-doc-review/
+*.log
+
+# Editors and operating systems
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# Temporary artifacts
+.stage0-remote/
+tmp/
+temp/
+
