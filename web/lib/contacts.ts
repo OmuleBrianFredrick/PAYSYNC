@@ -35,7 +35,7 @@ export function validateContacts(rows: ContactInput[]) {
     if (!name) reason = "Recipient name is required";
     else if (!phone) reason = "Enter a valid Ugandan mobile number";
     else if (!detectNetwork(phone)) reason = "The number is not on a supported MTN or Airtel prefix";
-    else if (!Number.isFinite(amount) || amount <= 0) reason = "Amount must be greater than zero";
+    else if (!Number.isSafeInteger(amount) || amount <= 0) reason = "Amount must be a whole number greater than zero";
     else if (seen.has(phone)) reason = "Duplicate phone number in this submission";
     if (reason) rejected.push({ row: index + 1, name, phone: rawPhone, reason });
     else { seen.add(phone!); accepted.push({ name, phone: phone!, network: detectNetwork(phone!)!, amount }); }

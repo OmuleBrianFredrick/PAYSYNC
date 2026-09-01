@@ -22,9 +22,8 @@ The current prototype uses Cloudflare-compatible Vinext and local D1. D1 is usef
 
 ## Consequences
 
-- Existing D1 routes and migrations are transitional and will be removed after PostgreSQL parity is verified.
+- The Stage 1 PostgreSQL migration replaces the former D1 routes and migrations after local SQL, RLS, concurrency, and PostgREST parity verification.
 - Payment-critical batch claiming will be performed inside PostgreSQL transactions or narrowly scoped database functions.
 - Authorization will be enforced by both RLS and server-side checks.
 - The free tiers are suitable for development and sandbox validation, not an assurance of production availability, backups, or service levels.
 - A paid operational plan must be reviewed before material real-money volume.
-

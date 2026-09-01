@@ -14,18 +14,20 @@ test("build contains the PaySync dashboard and payment-run flow", async () => {
   assert.match(capture, /Maximum 5,000 rows/);
 });
 
-test("ingestion safety rules and durable schema are present", async () => {
+test("ingestion safety rules and PostgreSQL integration are present", async () => {
   const [pipeline, migration, route] = await Promise.all([
     readFile(new URL("../lib/contacts.ts", import.meta.url), "utf8"),
-    readFile(new URL("../drizzle/0000_new_selene.sql", import.meta.url), "utf8"),
+    readFile(new URL("../../supabase/migrations/20260901134010_stage_1_core_schema.sql", import.meta.url), "utf8"),
     readFile(new URL("../app/api/sessions/route.ts", import.meta.url), "utf8"),
   ]);
   assert.match(pipeline, /rows\.length > 5000/);
   assert.match(pipeline, /Duplicate phone number/);
   assert.match(pipeline, /\^2567/);
-  assert.match(migration, /CREATE UNIQUE INDEX `uq_contacts_session_phone`/);
-  assert.match(migration, /CREATE TABLE `audit_log`/);
-  assert.match(route, /session\.created/);
+  assert.match(pipeline, /Number\.isSafeInteger/);
+  assert.match(migration, /total_amount_minor bigint/);
+  assert.match(migration, /for update of contact skip locked/i);
+  assert.match(migration, /enable row level security/i);
+  assert.match(route, /create_payment_session_as_service/);
 });
 
 test("verification adapters enforce exact matching and human review", async () => {

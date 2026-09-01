@@ -1,0 +1,3 @@
+-- Intentionally empty.
+-- Development organizations and users must be provisioned explicitly so test
+-- identities can never be promoted into a hosted or production environment.

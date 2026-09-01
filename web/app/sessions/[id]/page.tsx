@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { use, useCallback, useEffect, useMemo, useState } from "react";
 type Contact = {
-  id: number;
+  id: string;
   nameOnFile: string;
   phone: string;
   network: "MTN" | "Airtel";
@@ -13,7 +13,7 @@ type Contact = {
 };
 type RunData = {
   session: {
-    id: number;
+    id: string;
     reference: string;
     name: string;
     batchSize: number;
@@ -109,7 +109,7 @@ export default function SessionPage({
       setWorking(false);
     }
   };
-  const review = async (contactId: number, action: "approve" | "skip") => {
+  const review = async (contactId: string, action: "approve" | "skip") => {
     setWorking(true);
     try {
       const r = await fetch(
@@ -279,7 +279,7 @@ export default function SessionPage({
             <div key={a.id}>
               <span>✓</span>
               <strong>{a.action.replaceAll(".", " ")}</strong>
-              <small>{new Date(a.createdAt + "Z").toLocaleString()}</small>
+              <small>{new Date(a.createdAt).toLocaleString()}</small>
             </div>
           ))}
         </aside>
