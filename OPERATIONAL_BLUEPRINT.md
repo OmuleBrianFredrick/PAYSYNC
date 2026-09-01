@@ -25,7 +25,7 @@ Authority: PaySync SDLC Document plus approved amendments recorded here
 
 | Stage | Name | Current status |
 |---:|---|---|
-| 0 | Governance and project baseline | IN PROGRESS |
+| 0 | Governance and project baseline | BLOCKED — GITHUB ACTIONS ACCOUNT LOCK |
 | 1 | Supabase PostgreSQL migration | NOT STARTED |
 | 2 | Authentication, roles and tenant isolation | NOT STARTED |
 | 3 | Complete ingestion pipeline | NOT STARTED |
@@ -116,4 +116,4 @@ After Stage 12: analytics, accounting exports, Expo/React Native mobile app, pus
 
 ## Current Handoff
 
-Stage 0 is in progress using `https://github.com/OmuleBrianFredrick/PAYSYNC` as the authorized remote repository.
+Stage 0 source and governance baseline were pushed to `https://github.com/OmuleBrianFredrick/PAYSYNC` at commit `40313ac`. Local clean-install verification, lint, production build, automated tests, production dependency audit, and secret checks pass. GitHub refused to start the configured CI jobs and reported: `The job was not started because your account is locked due to a billing issue.` Stage 0 remains blocked until GitHub Actions can run and the remote checks pass.
